@@ -1,0 +1,4 @@
+export const ADD_WORKER = 'ADD_WORKER';
+export const ADD_WORKERS= 'ADD_COMMENTS';
+export const WORKERS_LOADING = 'COMMENTS_LOADING';
+export const WORKERS_FAILED = 'COMMENTS_FAILED'
