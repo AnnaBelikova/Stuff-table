@@ -16,9 +16,9 @@ class Header extends Component {
         return ( 
             <div className="header">
                 <div className="container header__container">
-                    <div className="header__title">
+                    <a href="/"><div className="header__title">
                         Табель
-                    </div>
+                    </div></a>
                     <div className="header__search">
                          <input type="text" className="header__input" name="search"/>
                             <i className="fas fa-search"></i>
