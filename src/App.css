@@ -38,6 +38,7 @@ body,
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
     background: #fff;
     margin-bottom: 40px;
+    
 }
 
 .container {
@@ -52,6 +53,12 @@ body,
     padding: 20px 0;
 }
 
+.header__search{
+    position:absolute;
+    top: 25px;
+    right: 21%;
+}
+
 .header__title {
     font-weight: bold;
     font-size: 42px;
@@ -64,6 +71,7 @@ body,
 a{
     text-decoration: none;
 }
+
 .header__input {
     width: 523px;
     height: 30px;
@@ -72,6 +80,12 @@ a{
     position: relative;
     border: none;
     padding: 0 10px;
+}
+.search__icon{
+    position: absolute;
+    bottom:0;
+    right:0;
+    transform: translate(-25%, -25%);
 }
 
 .header__btn {

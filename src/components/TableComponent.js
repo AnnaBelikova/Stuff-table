@@ -35,18 +35,29 @@ class Table extends Component {
         year_of_course_finishing:true,
         car_license:true,
         language:true,
-        language_level:true
+        language_level:true,
+        search:null
         };
 
 
     }
-    
-        
+    searchSpace=(event)=>{
+    let keyword = event.target.value;
+    this.setState({search:keyword})
+  }
+          
     render(){
-         const workers = this.props.workers.map((worker) => {
+        
+         const workers = this.props.workers.filter((worker)=>{
+      if(this.state.search == null)
+          return worker
+      else if(worker.surname.toLowerCase().includes(this.state.search.toLowerCase()) || worker.position.toLowerCase().includes(this.state.search.toLowerCase()) || worker.name.toLowerCase().includes(this.state.search.toLowerCase())){
+          return worker
+      }
+    }).map((worker) => {
             let workerId=worker.id;
             return (
-                       <tr  onClick={() => this.setState({id: workerId})} className={'stuff__item '+ (this.state.id === workerId ? 'current' : '')}><td><img className="stuff__img" width="50%" src={worker.image} alt={worker.name} /></td><td className={(this.state.name  ? '' : 'hidden')}>{worker.name}</td><td className={(this.state.surname  ? '' : 'hidden')}>{worker.surname}</td><td className={(this.state.date_of_birth  ? '' : 'hidden')}>{worker.date_of_birth}</td><td >{worker.age}</td><td className={(this.state.position  ? '' : 'hidden')}>{worker.position}</td><td className={(this.state.homework ? '' : 'hidden')}><input className="input-check" type="checkbox" id = "homework" name = "homework" checked={`${worker.homework}`}/></td><td className={(this.state.adress  ? '' : 'hidden')}>{worker.city}, {worker.street}, {worker.house}, {worker.flat} </td>
+                       <tr  onClick={() => this.setState({id: workerId})} className={'stuff__item '+ (this.state.id === workerId ? 'current' : '')}><td><img className="stuff__img" width="50%" src={worker.image} alt={worker.name} /></td><td className={(this.state.name  ? '' : 'hidden')}>{worker.name}</td><td className={(this.state.surname  ? '' : 'hidden')}>{worker.surname}</td><td className={(this.state.date_of_birth  ? '' : 'hidden')}>{worker.date_of_birth}</td><td >{Math.floor((new Date().getTime() - new Date(worker.date_of_birth))/ (24 * 3600 * 365.25 * 1000))}</td><td className={(this.state.position  ? '' : 'hidden')}>{worker.position}</td><td className={(this.state.homework ? '' : 'hidden')}><input className="input-check" type="checkbox" id = "homework" name = "homework" checked={`${worker.homework}`}/></td><td className={(this.state.adress  ? '' : 'hidden')}>{worker.city}, {worker.street}, {worker.house}, {worker.flat} </td>
                         </tr>
             );
         });
@@ -68,6 +79,9 @@ class Table extends Component {
                     <Input type = "text" id = "worker_id" name = "worker_id" value={`${this.state.id}`}/> 
                     <button type = "submit" className="stuff__delete">Удалить</button>
                 </Form>
+                <div className="header__search">
+                        <input type="text" className="header__input" name="search" onChange={(e)=>this.searchSpace(e)} placeholder="Search"/><div className="search__icon"> &#128269;</div>
+                    </div>
             </div>
             <div className="fields" onClick={() => this.setState({open: !this.state.open})}>Поля</div>
                 <div className={ (this.state.open  ? '' : 'hidden')}>

@@ -9,6 +9,7 @@ import { fetchWorkers } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 const mapStateToProps= state => {
     return {
@@ -30,12 +31,14 @@ class Main extends Component {
     componentDidMount() {
         this.props.fetchWorkers();    
     }
+    
 render() {
      const FormWithId = ({match}) => {
           return(
                 <EditForm worker={this.props.workers.workers.filter((worker) => worker.id == parseInt(match.params.workerId,10))[0]}/>
           );
     };
+
     return (
         <div className="main">
             <div className="wrapper__header"><Header/></div>

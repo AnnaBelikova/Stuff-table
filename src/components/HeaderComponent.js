@@ -19,11 +19,6 @@ class Header extends Component {
                     <a href="/"><div className="header__title">
                         Табель
                     </div></a>
-                    <div className="header__search">
-                         <input type="text" className="header__input" name="search"/>
-                            <i className="fas fa-search"></i>
-                        <button className="header__btn">поиск</button>
-                    </div>
                 </div>
             </div>
         );
