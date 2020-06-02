@@ -4,12 +4,9 @@ import Footer from './FooterComponent';
 import Table from './TableComponent';
 import FormComp from './FormComponent';
 import EditForm from './EditFormComponent';
-import { WORKERS } from '../shared/workers';
 import { fetchWorkers } from '../redux/ActionCreators';
-import { actions } from 'react-redux-form';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 
 const mapStateToProps= state => {
     return {
@@ -40,7 +37,7 @@ render() {
     };
 
     return (
-        <div className="main">
+        <div className="main ">
             <div className="wrapper__header"><Header/></div>
             <div className='content'>
                 <Switch>

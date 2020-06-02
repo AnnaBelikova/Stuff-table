@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
-import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label} from 'reactstrap';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import {  Form, FormGroup, Input, Label} from 'reactstrap';
+
 
 
 function EditForm(props){
 
-const [worker, setWorker] = React.useState({...props.worker});
-const [id, setId] = React.useState(worker.id);
-const [image, setImage] = React.useState(worker.image);
+const [worker] = React.useState({...props.worker});
+const [id] = React.useState(worker.id);
+const [image] = React.useState(worker.image);
 const [name, setName] = React.useState(worker.name);
 const [surname, setSurname] = React.useState(worker.surname);
 const [date_of_hiring, setDate_of_hiring] = React.useState(worker.date_of_hiring);
@@ -39,18 +39,18 @@ const [language_level, setLanguage_level] = React.useState(worker.language_level
     
 
             return (
-                <div className=" form__container container" >
+                <div className="form__container container" >
                     <div className=" form__header" > 
                         Редактирование
                     </div> 
                     <div className="form__body ">
-                        <Form action="http://cw44189.tmweb.ru/worker_edit.php" method="post" enctype="multipart/form-data" >
+                        <Form action="http://table.cw44189.tmweb.ru/worker_edit.php" method="post" enctype="multipart/form-data" >
                             <Input type = "text" id = "worker_id" name = "worker_id" value={`${id}`}/> 
                             <div className="form__main">
                                 <div className="main_block">
                                     <FormGroup >
                                         <div className="imgPreview">
-                                            <img src={`${image}`}/>
+                                            <img src={`${image}`} alt="portrait_edit"/>
                                         </div>
                                         <Input type = "file" id = "worker_photo" name = "worker_photo"/> 
                                     </FormGroup >
@@ -236,9 +236,9 @@ const [language_level, setLanguage_level] = React.useState(worker.language_level
                                         </FormGroup> 
                                     </div>
                             </div> 
-                            <div className="stuff__buttons"> 
-                                <div className="form__btn"><button className="submit-btn" type = "submit" name="edit"> Сохранить < /button></div>
-                            </div>
+                            
+                                <div className="form__btn"><button className="submit-btn" type = "submit" > Сохранить < /button></div>
+                            
                         </Form> 
 
                     </div> 

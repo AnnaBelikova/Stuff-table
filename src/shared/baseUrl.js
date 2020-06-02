@@ -1,1 +1,1 @@
-export const baseUrl = 'http://cw44189.tmweb.ru/';
+export const baseUrl = 'http://table.cw44189.tmweb.ru/';

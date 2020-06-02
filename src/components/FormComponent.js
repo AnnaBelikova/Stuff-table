@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label} from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Form, FormGroup, Input, Label} from 'reactstrap';
+
 
 
 class FormComp extends Component {
@@ -36,17 +36,17 @@ class FormComp extends Component {
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
-        $imagePreview = (<img src={imagePreviewUrl} />);
+        $imagePreview = (<img src={imagePreviewUrl} alt="portrait" />);
         } else {
             $imagePreview = (<div className="previewText">Выберите фотографию </div>);
         }
            return(
-           <div className=" form__container container" >
+           <div className="form__container container" >
                     <div className=" form__header" > 
                         Добавление
                     </div> 
                     <div className="form__body ">
-                        <Form action="http://cw44189.tmweb.ru/worker_add.php" method="post" enctype="multipart/form-data" >
+                        <Form action="http://table.cw44189.tmweb.ru/worker_add.php" method="post" enctype="multipart/form-data" >
                             <div className="form__main">
                                 <div className="main_block">
                                     <FormGroup >
